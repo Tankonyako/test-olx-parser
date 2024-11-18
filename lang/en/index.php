@@ -29,6 +29,9 @@ return [
 
 	'form.input.url.title' => 'OLX Ad Url',
 	'form.input.url.placeholder' => '<URL>',
+	'form.input.email.title' => 'Email',
+	'form.input.email.placeholder' => '<Email>',
+
 	'form.submit.title' => 'Add to processing',
 
 ];

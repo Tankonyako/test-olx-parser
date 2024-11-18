@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/uDyCsbd.png" width="100%">
+<img src="https://i.imgur.com/HBW72eg.png" width="100%">
 
 # Olx Test
 
