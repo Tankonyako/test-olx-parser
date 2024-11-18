@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "start": "concurrently \"php artisan serve --host=0.0.0.0 --port=8000\" \" php artisan queue:work\" \" php artisan schedule:work\""
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "axios": "^1.7.4",
+    "concurrently": "^9.1.0",
+    "laravel-vite-plugin": "^1.0",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "vite": "^5.0"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1"
+  }
+}

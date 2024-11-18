@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel-app
+    working_dir: /var/www
+    volumes:
+      - .:/var/www
+      - node_modules:/var/www/node_modules
+    ports:
+      - "8888:8000"
+    links:
+      - mysql
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  mysql:
+    image: mariadb:latest
+    environment:
+      - MARIADB_ROOT_HOST=%
+      - MARIADB_DATABASE=testp
+      - MARIADB_ROOT_PASSWORD=root
+    container_name: mariadb
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    networks:
+      - app-network
+    healthcheck:
+      test: [ "CMD", "mariadb", "-uroot", "-proot", "-e", "use testp" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    ports:
+      - "3307:3306"
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  node_modules: { }
+  mariadb-data:
+    driver: local
